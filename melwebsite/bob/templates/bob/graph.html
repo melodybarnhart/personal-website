@@ -1,0 +1,11 @@
+{% extends 'bob/base.html' %}
+
+{% block content %}
+<div class="content">
+    <h2>Pokémon HP Stats</h2>
+    <p>This graph shows the base HP of some of your favorite Pokémon.</p>
+    <div>
+        {{ plot_div|safe }}
+    </div>
+</div>
+{% endblock %}

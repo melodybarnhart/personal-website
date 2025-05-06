@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Melody's Website</title>
+
+    <!-- Indie Flower font -->
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-image: url("{% static 'images/ladybug_wallpaper.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Indie Flower', cursive;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #ffb6c1;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 60px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.2);
+        }
+        .sticky-note {
+            background-color: #fffec8;
+            border: 2px solid #fcd34d;
+            padding: 20px;
+            margin-top: 40px;
+            border-radius: 10px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+            transform: rotate(-1deg);
+        }
+
+
+        .washi-tape {
+            position: relative;
+            display: inline-block;
+        }
+
+        .washi-tape::before, .washi-tape::after {
+            content: '';
+            position: absolute;
+            background-color: #f9a5d2;
+            height: 15px;
+            width: 100px;
+            opacity: 0.8;
+            z-index: -1;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .washi-tape::before {
+            top: -0px;
+            left: -35px;
+            transform: rotate(145deg);
+        }
+
+        .washi-tape::after {
+            bottom: 0px;
+            right: -35px;
+            transform: rotate(145deg);
+        }
+
+        .profile {
+            text-align: center;
+        }
+
+        .profile-pic {
+            width: 300px;
+            height: auto;
+            margin-top: 20px;
+            border: 10px dotted #cdeac0;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+        }
+
+        .project-img {
+            width: 50%;
+            max-width: 150px;
+            height: auto;
+            object-fit: cover;
+            margin: 0 auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #ffb6c1;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-content p {
+            font-size: 1.2em;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .social-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .social-links li {
+            margin: 0 15px;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            color: #ff69b4;
+            font-size: 1.1em;
+        }
+
+        .social-links a:hover {
+            color: #ff4d94;
+        }
+
+        p {
+            font-size: 1.2em;
+        }
+
+        .qa-list {
+            margin-top: 20px;
+        }
+
+        .qa-item {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .question {
+            background-color: #e0f7fa;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .answer {
+            background-color: #f1f8e9;
+            padding: 15px;
+            border-radius: 6px;
+            font-style: italic;
+        }
+
+        .answer em {
+            color: #ff4081;
+        }
+
+        .qa-item:hover {
+            background-color: #f1f1f1;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .qa-item:last-child {
+            margin-bottom: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="{% url 'bob:index' %}">Home</a>
+    <a href="{% url 'bob:projects' %}">Projects</a>
+    <a href="{% url 'bob:questions' %}">Submit a Question</a>
+    <a href="{% url 'bob:answers' %}">Answers</a>
+    <a href="{% url 'bob:graph' %}">Graphs</a>
+</nav>
+
+<div class="content">
+    {% block content %}
+    {% endblock %}
+</div>
+
+<footer>
+    <div class="footer-content">
+        <p>Connect with me:</p>
+        <ul class="social-links">
+            <li><a href="https://github.com/melodybarnhart"
+                   target="_blank">Github</a></li>
+            <li><a href="https://www.instagram.com/nintendozombs/"
+                   target="_blank">Instagram</a></li>
+        </ul>
+    </div>
+</footer>
+
+</body>
+</html>

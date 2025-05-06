@@ -1,0 +1,31 @@
+{% extends 'bob/base.html' %}
+
+{% block page_header %}
+  <h2>Melody's portfolio</h2>
+{% endblock page_header %}
+{% load static %}
+
+{% block content %}
+<h1 class="mb-4">My Projects</h1>
+
+<div class="row">
+  {% for project in projects %}
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ project.title }}</h5>
+          <p class="card-text">{{ project.description|truncatewords:20 }}</p>
+          <a href="{{ project.github_link }}" class="btn btn-primary"
+             target="_blank">View on Github</a>
+        </div>
+
+        {% if project.image %}
+          <img src="{{ project.image.url }}" class="card-img-bottom project-img"
+               alt="{{ project.title }}">
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

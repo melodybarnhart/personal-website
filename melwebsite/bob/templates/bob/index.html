@@ -1,0 +1,26 @@
+{% extends 'bob/base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="profile">
+    <h1 class="sticky-note washi-tape">Welcome to Melody's Website</h1>
+    <p>Hi! My name is Melody, and I am a student at Anthis Career Center in the
+    Software development course.</p>
+
+    <img src="{% static 'images/melody.jpg' %}" alt="Melody's photo" class="profile-pic">
+
+    <p>Here is a video explaining the course:</p>
+
+    <div>
+      <iframe width="560" height="315"
+              src="https://www.youtube.com/embed/dr5H9bPrOEs?si=-mCR_jL4OQbnP4CU"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write;
+              encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+      </iframe>
+    </div>
+
+  </div>
+{% endblock content %}

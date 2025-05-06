@@ -1,0 +1,26 @@
+{% extends 'bob/base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="content">
+    <h1>Answers to Your Questions</h1>
+
+    <div class="qa-list">
+      {% for question in questions %}
+        <div class="qa-item">
+          <div class="question">
+            <strong>Question:</strong> {{ question.question_text }}
+          </div>
+          <div class="answer">
+            <strong>Answer:</strong>
+            {% if question.answer_text %}
+              {{ question.answer_text }}
+            {% else %}
+              <em>No answer yet.</em>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
