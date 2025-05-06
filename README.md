@@ -1,2 +1,2 @@
 # personal-website
-final for software development class
+Final for software development class
